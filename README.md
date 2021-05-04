@@ -35,5 +35,36 @@ Now the database is set up and ready for use!
 
 ## Uploading to the Database
 
-The
+The first step to getting the database ready for uploading the API information is create the table. To create a table, we run the command below in the terminal we logged into docker in.
+
+**CREATE TABLE final ( 
+	factor INT, 
+	pi DECIMAL (50,25), 
+	time DATETIME, 
+PRIMARY KEY (factor));**
+
+Once that is done, we use the python packages requests, schedule and mysql.connector to create a python file that will pull data from the API each minute and upload into the a MySQL table. The python package requests allows us to easily pull the information directly from the API. The package schedule allows us to easy make sure our code executes every minute at the exact same second. Finally, mysql.connector allows us to connect the python file to the database and run MySQL commands.
+
+We use mysql.connecter.connect() to connect to the database. The parameter are as follows:
+
+**host="127.0.0.1",
+  user="root",
+  password="Abc123",
+  database="project2"**
+
+In the function add_data_to_db(), we are getting data in JSON form directly from the API. Then, we are separating the data and putting it into variables. These variables are used to write the MySQL command, which is also executed every minute. There is an if statement in the code that needs to be manually updated with a time in which you want the code to stop executing. However, it is not required to update this statement because factor is the primary key in the MySQL table, and factor repeats after the hour is over. Hence, the code will stop itself when the next hour starts because the a duplicate primary would attempt to be added to the table, which does not work.
+
+The variable job utilizes the schedule package, specifically schedule.every().minute.at(":00") to invoke the add_data_to_db() every minute at the same time. The while loop at the bottom of the code ensures that the code does not quit before it finishes executing completely. 
+
+After an hour, when the code is done executing, we see this printed from the python file.
+
+<img width="682" alt="Screen Shot 2021-05-04 at 2 01 45 PM" src="https://user-images.githubusercontent.com/50887095/117076180-fd3be480-ad03-11eb-8672-95efc2c1900d.png">
+
+In the terminal running docker, we run this command to see the entire MySQL table.
+
+**SELECT * FROM final;**
+
+<img width="525" alt="Screen Shot 2021-05-04 at 2 00 52 PM" src="https://user-images.githubusercontent.com/50887095/117076263-1ba1e000-ad04-11eb-9c77-466c82e5b387.png">
+
+
 ## Analysis
