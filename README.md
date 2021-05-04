@@ -14,9 +14,26 @@ After these commands finish running, we have a MySql environment set up. We now 
 
 The first step is the open a new tab or window in terminal. Then run a few commands: 
 
-First we run
+First we run the command below in order to get the container ID.
 
 **docker container ls**
+
+Once we have the container ID, we run the below command (switching 2ec5a94f5095 to the container id displayed by the previous command) to login.
+
+**docker exec -it 2ec5a94f5095 /bin/bash**
+
+Then we run the command below, so that we are able to code in MySQL directly in the terminal window that we logged into Docker. The command below will prompt you for the password, which is Abc123 if exact docker run command was used.
+
+**mysql -u root -p**
  
+We then run the next two commands to create a database, and then use that database.
+
+**create database project2;
+use project2;**
+
+Now the database is set up and ready for use!
+
 ## Uploading to the Database
+
+The
 ## Analysis
