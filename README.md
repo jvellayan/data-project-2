@@ -1,5 +1,7 @@
 # data-project-2
+
 Data Project 1
+
 Jaya Vellayan
 
 ## Setting up a Database
@@ -75,29 +77,51 @@ In the terminal running docker, we run this command to see the entire MySQL tabl
 Now that our table is fully populated, we can run many MySQL commands (in the terminal running Docker) to get a better understanding of the data. To start, we already know that the API repeats the same factor and pi values every hour, but that is about it. Additionally, all these commands can be found inside the commands.sql file.
 
 If we start by looking at pi commands only:
+
 **SELECT AVG(pi) FROM final;**
+
 **SELECT MIN(pi) FROM final;**
+
 **SELECT MAX(pi) FROM final;**
+
 **SELECT DISTINCT pi from final;**
+
 **SELECT STD(pi) FROM final;**
+
 **SELECT VARIANCE(pi) FROM final;**
+
 **SELECT POWER(pi,(1/3)) FROM final;**
 
 Next, we will look at the factor commands only:
+
 **SELECT AVG(factor) FROM final;**
+
 **SELECT MIN(factor) FROM final;**
+
 **SELECT MAX(factor) FROM final;**
+
 **SELECT DISTINCT factor from final;**
+
 **SELECT STD(factor) FROM final;**
+
 **SELECT VARIANCE(factor) FROM final;**
+
 **SELECT POWER(factor,(1/3)) FROM final;**
 
 Now, we can look at joint commands:
+
 **SELECT factor,pi FROM final ORDER BY pi DESC;**
+
 **SELECT factor/pi FROM final;**
+
 **SELECT pi/factor FROM final;**
+
 **SELECT pi*factor FROM final;**
+
 **SELECT power(factor, (1/pi)) FROM final;**
 
 
+Finally, I created two graphs of the data in excel: 
+<img width="403" alt="Screen Shot 2021-05-04 at 4 01 35 PM" src="https://user-images.githubusercontent.com/50887095/117076832-18f3ba80-ad05-11eb-8f9d-c416216c9241.png">
+<img width="391" alt="Screen Shot 2021-05-04 at 4 02 52 PM" src="https://user-images.githubusercontent.com/50887095/117076837-198c5100-ad05-11eb-8561-47761155e409.png">
 
