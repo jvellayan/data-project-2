@@ -78,47 +78,63 @@ Now that our table is fully populated, we can run many MySQL commands (in the te
 
 If we start by looking at pi commands only:
 
-**SELECT AVG(pi) FROM final;**
+**SELECT AVG(pi) FROM final;** 3.15448112351675831864406779661
 
-**SELECT MIN(pi) FROM final;**
+**SELECT MIN(pi) FROM final;** 3.017071817071818
 
-**SELECT MAX(pi) FROM final;**
+**SELECT MAX(pi) FROM final;** 4.0
 
 **SELECT DISTINCT pi from final;**
 
-**SELECT STD(pi) FROM final;**
+**SELECT STD(pi) FROM final;** 0.112316521179452
 
-**SELECT VARIANCE(pi) FROM final;**
+**SELECT VARIANCE(pi) FROM final;** 0.01261500092985429
 
 **SELECT POWER(pi,(1/3)) FROM final;**
 
 Next, we will look at the factor commands only:
 
-**SELECT AVG(factor) FROM final;**
+**SELECT AVG(factor) FROM final;** 53100
 
-**SELECT MIN(factor) FROM final;**
+**SELECT MIN(factor) FROM final;** 1
 
-**SELECT MAX(factor) FROM final;**
+**SELECT MAX(factor) FROM final;** 205379
 
 **SELECT DISTINCT factor from final;**
 
-**SELECT STD(factor) FROM final;**
+**SELECT STD(factor) FROM final;** 59746.97289403037
 
-**SELECT VARIANCE(factor) FROM final;**
+**SELECT VARIANCE(factor) FROM final;** 3569700770
 
 **SELECT POWER(factor,(1/3)) FROM final;**
+
+<img width="371" alt="Screen Shot 2021-05-04 at 2 54 06 PM" src="https://user-images.githubusercontent.com/50887095/117077778-b8fe1380-ad06-11eb-85af-850cf0efec59.png">
+
 
 Now, we can look at joint commands:
 
 **SELECT factor,pi FROM final ORDER BY pi DESC;**
 
+<img width="494" alt="Screen Shot 2021-05-04 at 2 39 25 PM" src="https://user-images.githubusercontent.com/50887095/117077865-db902c80-ad06-11eb-8522-23d376d40324.png">
+
+
 **SELECT factor/pi FROM final;**
+
+<img width="233" alt="Screen Shot 2021-05-04 at 3 15 21 PM" src="https://user-images.githubusercontent.com/50887095/117077686-8f44ec80-ad06-11eb-89e7-ed1230ed94c4.png">
+
 
 **SELECT pi/factor FROM final;**
 
+<img width="372" alt="Screen Shot 2021-05-04 at 3 19 10 PM" src="https://user-images.githubusercontent.com/50887095/117077736-a8e63400-ad06-11eb-8523-82441e59a885.png">
+
 **SELECT pi*factor FROM final;**
 
+<img width="318" alt="Screen Shot 2021-05-04 at 3 20 39 PM" src="https://user-images.githubusercontent.com/50887095/117077841-d16e2e00-ad06-11eb-933c-c3a0d64df76b.png">
+
+
 **SELECT power(factor, (1/pi)) FROM final;**
+
+<img width="293" alt="Screen Shot 2021-05-04 at 3 22 36 PM" src="https://user-images.githubusercontent.com/50887095/117077904-ea76df00-ad06-11eb-965b-9e27b257d370.png">
 
 
 Finally, I created two graphs of the data in excel: 
