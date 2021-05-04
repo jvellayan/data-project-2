@@ -122,6 +122,13 @@ Now, we can look at joint commands:
 
 
 Finally, I created two graphs of the data in excel: 
-<img width="403" alt="Screen Shot 2021-05-04 at 4 01 35 PM" src="https://user-images.githubusercontent.com/50887095/117076832-18f3ba80-ad05-11eb-8f9d-c416216c9241.png">
+
+In the graph below, we can get an overview of all of the data. We see one outlier, where pi = 4. The rest of the pi values pretty much in a straight line. The factor values are rapidly increasing. 
+
 <img width="391" alt="Screen Shot 2021-05-04 at 4 02 52 PM" src="https://user-images.githubusercontent.com/50887095/117076837-198c5100-ad05-11eb-8561-47761155e409.png">
+
+Here is the same graphed, but zoomed in. We can see that even with a closer view, the pi value all look to be basically in a line, and the factor values are rapidly increasing.
+
+<img width="403" alt="Screen Shot 2021-05-04 at 4 01 35 PM" src="https://user-images.githubusercontent.com/50887095/117076832-18f3ba80-ad05-11eb-8f9d-c416216c9241.png">
+
 
