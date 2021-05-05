@@ -120,7 +120,7 @@ The averge for the factor column is : 53100.
 
 The minimum for the factor column is: 1.
 
-**SELECT MAX(factor) FROM final;** 205379
+**SELECT MAX(factor) FROM final;** 
 
 The maximum for the factor column is: 205379.
 
@@ -139,7 +139,7 @@ The standard deviation for factor is 59746.97289403037 and the variance is 35697
 
 **SELECT POWER(factor,(1/3)) FROM final;**
 
-If you look closer at the data, it is evident that factor is the cube of the minute in time. Hence, for the first minute (1) the cube root/factor is 1, and for the second minute (2), factor is 8, and so on. I ran this MySQL command to double check my theory. The rounding is not perfect, but we can see that my theory is correct.
+If you look closer at the data, it is evident that factor is the cube of the minute in time. Hence, for the first minute (1) the cube root/factor is 1, and for the second minute (2), factor is 8, and so on. Since I populated the table at the start of the hour, we can see that the row number is also the same as the cube root of the factor. I ran this MySQL command to double check my theory. The rounding is not perfect, but we can see that my theory is correct.
 
 <img width="371" alt="Screen Shot 2021-05-04 at 2 54 06 PM" src="https://user-images.githubusercontent.com/50887095/117077778-b8fe1380-ad06-11eb-85af-850cf0efec59.png">
 
@@ -148,7 +148,7 @@ Now, we can look at joint commands and their outputs:
 
 **SELECT factor,pi FROM final ORDER BY pi DESC;**
 
-From this command, we are able to notce a pattern in the pi column. We can see that row each new row/minute pi alternates from being the next biggest/smallest number, until it reaches itself in the middle.
+From this command, we are able to notce a pattern in the pi column. We can see that row each new row/minute pi alternates from being the next biggest/smallest number, until it reaches itself in the middle. For example, factor 1 has the biggest pi because it is the smallest factor, then factor 8 (the second smallest factor) has the smallest pi, then factor 27 (the third smallest factor) has the second largest pi, and 64 (the 4th largest factir) has the second smallest pi, and so on.
 
 <img width="494" alt="Screen Shot 2021-05-04 at 2 39 25 PM" src="https://user-images.githubusercontent.com/50887095/117077865-db902c80-ad06-11eb-8522-23d376d40324.png">
 
