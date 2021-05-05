@@ -1,6 +1,6 @@
 import requests
 import schedule
-import datetime
+#import datetime
 import mysql.connector
 
 #connect to database
