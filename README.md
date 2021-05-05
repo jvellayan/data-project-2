@@ -76,63 +76,106 @@ In the terminal running docker, we run this command to see the entire MySQL tabl
 
 Now that our table is fully populated, we can run many MySQL commands (in the terminal running Docker) to get a better understanding of the data. To start, we already know that the API repeats the same factor and pi values every hour, but that is about it. Additionally, all these commands can be found inside the commands.sql file.
 
-If we start by looking at pi commands only:
+I first started by gathering general information about the data and seeing if that gave me any insight on the data.
 
-**SELECT AVG(pi) FROM final;** 3.15448112351675831864406779661
+If we start by looking at pi commands and their outputs only:
 
-**SELECT MIN(pi) FROM final;** 3.017071817071818
+**SELECT AVG(pi) FROM final;** 
+
+The averge for the pi column is : 3.15448112351675831864406779661.
+
+
+**SELECT MIN(pi) FROM final;** 
+
+The minimum for the pi column is: 3.017071817071818.
 
 **SELECT MAX(pi) FROM final;** 4.0
 
+The maximum for the pi column is: 4.0.
+
+Based on these first three statistics, we can see that there is a very small range in the pi column.
+
 **SELECT DISTINCT pi from final;**
+
+When this command is run, we can see that the number of pi values is still the same as the original table. Hence, every value of pi for the hour is distinct. There are no repeat values of pi.
 
 **SELECT STD(pi) FROM final;** 0.112316521179452
 
-**SELECT VARIANCE(pi) FROM final;** 0.01261500092985429
+**SELECT VARIANCE(pi) FROM final;** 
+
+The standard deviation for pi is 0.112316521179452 and the variance is 0.01261500092985429, which are very small numbers. This further supports the idea that the column pi has a very small range.
 
 **SELECT POWER(pi,(1/3)) FROM final;**
 
-Next, we will look at the factor commands only:
+I only ran this command after I realized that the pattern in factor is the minute cubed. However, this command was not as insightful for the pi variable.
 
-**SELECT AVG(factor) FROM final;** 53100
+
+Next, we will look at the factor commands and their outputs only:
+
+**SELECT AVG(factor) FROM final;** 
+
+The averge for the factor column is : 53100.
 
 **SELECT MIN(factor) FROM final;** 1
 
+The minimum for the factor column is: 1.
+
 **SELECT MAX(factor) FROM final;** 205379
+
+The maximum for the factor column is: 205379.
+
+Based on these three statistics, we can see that there is a very large range in the factor column.
 
 **SELECT DISTINCT factor from final;**
 
-**SELECT STD(factor) FROM final;** 59746.97289403037
+This command was essentially useless because factor was the primary key of the table, and hence cannot have any repeats. This command confirmed that there were no repeats in factor.
 
-**SELECT VARIANCE(factor) FROM final;** 3569700770
+**SELECT STD(factor) FROM final;** 
+
+**SELECT VARIANCE(factor) FROM final;** 
+
+The standard deviation for factor is 59746.97289403037 and the variance is 3569700770, which are very large numbers. This further supports the idea that the column factor has a very large range.
+
 
 **SELECT POWER(factor,(1/3)) FROM final;**
+
+If you look closer at the data, it is evident that factor is the cube of the minute in time. Hence, for the first minute (1) the cube root/factor is 1, and for the second minute (2), factor is 8, and so on. I ran this MySQL command to double check my theory. The rounding is not perfect, but we can see that my theory is correct.
 
 <img width="371" alt="Screen Shot 2021-05-04 at 2 54 06 PM" src="https://user-images.githubusercontent.com/50887095/117077778-b8fe1380-ad06-11eb-85af-850cf0efec59.png">
 
 
-Now, we can look at joint commands:
+Now, we can look at joint commands and their outputs:
 
 **SELECT factor,pi FROM final ORDER BY pi DESC;**
+
+From this command, we are able to notce a pattern in the pi column. We can see that row each new row/minute pi alternates from being the next biggest/smallest number, until it reaches itself in the middle.
 
 <img width="494" alt="Screen Shot 2021-05-04 at 2 39 25 PM" src="https://user-images.githubusercontent.com/50887095/117077865-db902c80-ad06-11eb-8522-23d376d40324.png">
 
 
 **SELECT factor/pi FROM final;**
 
+This command was just to see if we could get anymore information, but was not very insightful.
+
 <img width="233" alt="Screen Shot 2021-05-04 at 3 15 21 PM" src="https://user-images.githubusercontent.com/50887095/117077686-8f44ec80-ad06-11eb-89e7-ed1230ed94c4.png">
 
 
 **SELECT pi/factor FROM final;**
 
+This command was just to see if we could get anymore information, but was not very insightful.
+
 <img width="372" alt="Screen Shot 2021-05-04 at 3 19 10 PM" src="https://user-images.githubusercontent.com/50887095/117077736-a8e63400-ad06-11eb-8523-82441e59a885.png">
 
 **SELECT pi*factor FROM final;**
+
+This command was just to see if we could get anymore information, but was not very insightful.
 
 <img width="318" alt="Screen Shot 2021-05-04 at 3 20 39 PM" src="https://user-images.githubusercontent.com/50887095/117077841-d16e2e00-ad06-11eb-933c-c3a0d64df76b.png">
 
 
 **SELECT power(factor, (1/pi)) FROM final;**
+
+This command was just to see if we could get anymore information, but was not very insightful.
 
 <img width="293" alt="Screen Shot 2021-05-04 at 3 22 36 PM" src="https://user-images.githubusercontent.com/50887095/117077904-ea76df00-ad06-11eb-965b-9e27b257d370.png">
 
