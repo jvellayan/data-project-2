@@ -78,6 +78,8 @@ Now that our table is fully populated, we can run many MySQL commands (in the te
 
 I first started by gathering general information about the data and seeing if that gave me any insight on the data.
 
+
+
 If we start by looking at pi commands and their outputs only:
 
 **SELECT AVG(pi) FROM final;** 
@@ -99,7 +101,7 @@ Based on these first three statistics, we can see that there is a very small ran
 
 When this command is run, we can see that the number of pi values is still the same as the original table. Hence, every value of pi for the hour is distinct. There are no repeat values of pi.
 
-**SELECT STD(pi) FROM final;** 0.112316521179452
+**SELECT STD(pi) FROM final;** 
 
 **SELECT VARIANCE(pi) FROM final;** 
 
@@ -108,6 +110,8 @@ The standard deviation for pi is 0.112316521179452 and the variance is 0.0126150
 **SELECT POWER(pi,(1/3)) FROM final;**
 
 I only ran this command after I realized that the pattern in factor is the minute cubed. However, this command was not as insightful for the pi variable.
+
+
 
 
 Next, we will look at the factor commands and their outputs only:
@@ -142,6 +146,8 @@ The standard deviation for factor is 59746.97289403037 and the variance is 35697
 If you look closer at the data, it is evident that factor is the cube of the minute in time. Hence, for the first minute (1) the cube root/factor is 1, and for the second minute (2), factor is 8, and so on. Since I populated the table at the start of the hour, we can see that the row number is also the same as the cube root of the factor. I ran this MySQL command to double check my theory. The rounding is not perfect, but we can see that my theory is correct.
 
 <img width="371" alt="Screen Shot 2021-05-04 at 2 54 06 PM" src="https://user-images.githubusercontent.com/50887095/117077778-b8fe1380-ad06-11eb-85af-850cf0efec59.png">
+
+
 
 
 Now, we can look at joint commands and their outputs:
